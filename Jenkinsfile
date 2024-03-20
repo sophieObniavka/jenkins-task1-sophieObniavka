@@ -1,17 +1,18 @@
+
 pipeline {
-    agent any
     environment {
-      // TODO
+        APP_PORT = '9090'
     }
+    
     stages {
         stage('Build') {
             steps {
-               echo 'test'
+                sh 'mvn clean package'
             }
         }
         stage('Unit Test') {
             steps {
-                 // TODO
+                sh 'mvn test'
             }
         }
     }
